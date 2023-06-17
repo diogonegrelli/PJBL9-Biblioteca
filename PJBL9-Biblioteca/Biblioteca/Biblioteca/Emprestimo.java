@@ -3,12 +3,14 @@ package Biblioteca;
 import java.time.LocalDate;
 
 public class Emprestimo {
+    private itemBiblioteca itemEmprestado;
     private int idEmprestimo;
     private Usuario usuario;
     private int prazoDevolucao;
     private boolean pendente;
 
-    public Emprestimo(int idEmprestimo, Usuario usuario, int prazoDevolucao) {
+    public Emprestimo(itemBiblioteca itemEmprestado, int idEmprestimo, Usuario usuario, int prazoDevolucao) {
+        this.itemEmprestado = itemEmprestado;
         this.idEmprestimo = idEmprestimo;
         this.usuario = usuario;
         this.prazoDevolucao = prazoDevolucao;
@@ -43,12 +45,16 @@ public void realizarRenovacao() {
 }
 
 private LocalDate calcularNovaDataDevolucao() {
+        getItemEmprestado();
         LocalDate dataAtual = LocalDate.now();
 
         int prazoDevolucao;
-        if (/* variável ou get correspondente ao item*/ instanceof Livro) {
+         /* variável ou get correspondente ao item*/
+        if (itemEmprestado instanceof Livro) {
             prazoDevolucao = 15;
-        } else if (/* variável ou get correspondente ao item*/ instanceof Revista) {
+        }
+        /* variável ou get correspondente ao item*/
+        else if (itemEmprestado instanceof Revista) {
             prazoDevolucao = 7;
         } else {
             return null;
@@ -81,5 +87,7 @@ private LocalDate calcularNovaDataDevolucao() {
         this.pendente = pendente;
     }
 
-
+    public itemBiblioteca getItemEmprestado() {
+        return itemEmprestado;
+    }
 }
