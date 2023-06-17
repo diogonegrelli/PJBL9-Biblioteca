@@ -22,7 +22,7 @@ public String verificaStatus() {
     if (dataAtual.isBefore(dataDevolucao)) {
         return "Em dia";
     } else if (dataAtual.isEqual(dataDevolucao)) {
-       return "Hoje Ã© o Ãºltimo dia";
+       return "Hoje Não é o Último dia";
     } else {
         return "Atrasado";
     }
@@ -31,24 +31,24 @@ public String verificaStatus() {
 
 public void devolverItem() {
     if (!pendente) {
-        System.out.println("O item estÃ¡ disponÃ­vel para emprÃ©stimo.");
+        System.out.println("O item está disponível para empréstimo.");
     } else if (prazoDevolucao < 0) {
-        System.out.println("O prazoDevolucao de devoluÃ§Ã£o estÃ¡ atrasado.");
+        System.out.println("O prazoDevolucao de devolução está atrasado.");
     } else {
-        System.out.println("O item estÃ¡ indisponÃ­vel no momento.");
+        System.out.println("O item está indisponível no momento.");
      }
 }
 public void realizarRenovacao() {
-    System.out.println("RenovaÃ§Ã£o realizada com sucesso. Novo prazo de devoluÃ§Ã£o: " + calcularNovaDataDevolucao());
+    System.out.println("Renovação realizada com sucesso. Novo prazo de devolução: " + calcularNovaDataDevolucao());
 }
 
 private LocalDate calcularNovaDataDevolucao() {
         LocalDate dataAtual = LocalDate.now();
 
         int prazoDevolucao;
-        if (/* variÃ¡vel ou get correspondente ao item*/ instanceof Livro) {
+        if (/* variável ou get correspondente ao item*/ instanceof Livro) {
             prazoDevolucao = 15;
-        } else if (/* variÃ¡vel ou get correspondente ao item*/ instanceof Revista) {
+        } else if (/* variável ou get correspondente ao item*/ instanceof Revista) {
             prazoDevolucao = 7;
         } else {
             return null;
