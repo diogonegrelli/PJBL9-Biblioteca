@@ -33,4 +33,10 @@ public class Categoria {
     public void setColecaoCategoria(ArrayList<itemBiblioteca> colecaoCategoria) {
         this.colecaoCategoria = colecaoCategoria;
     }
+
+    @Override
+    public String toString() {
+        return nomeCategoria;
+    }
+
 }

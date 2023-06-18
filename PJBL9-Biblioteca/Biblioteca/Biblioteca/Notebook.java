@@ -5,17 +5,19 @@ import Biblioteca.itemBiblioteca;
 public class Notebook extends itemBiblioteca {
     private String marca;
     private String modelo;
+    private Categoria categoria;
 
-    public Notebook(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String marca, String modelo) {
+
+    public Notebook(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String marca, String modelo, Categoria categoria) {
         super(idItem, tituloItem, localizacao, disponivel, qtdDisponivel);
         this.marca = marca;
         this.modelo = modelo;
+        this.categoria = categoria;
     }
-
+    //* Notebook não é emprestado, portanto implementa mas retorno ZERO//
     @Override
-    public void calculaMulta() {
-
-
+    public float calculaMulta(int diasAtraso) {
+        return 0;
     }
     @Override
     public void exibeItem(){
@@ -26,23 +28,24 @@ public class Notebook extends itemBiblioteca {
         System.out.println("QTD Disponível: "+ getQtdDisponivel());
         System.out.println("Marca: " + getMarca());
         System.out.println("Modelo: " + getModelo());
+        System.out.println("Categoria: "+ getCategoria());
     }
 
 
     //* GETTERS E SETTERS
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public String getModelo() {
+        return modelo;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public String toString(){
+        return getTituloItem();
     }
 }

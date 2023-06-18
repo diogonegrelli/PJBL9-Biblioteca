@@ -14,12 +14,25 @@ public class Revista extends itemBiblioteca {
         this.categoria = categoria;
 
     }
-
+    //*MÉTODO ABSTRATO IMPLEMENTADO NAS CLASSES FILHAS: LIVRO, REVISTA E NOTEBOOK//
     @Override
-    public void calculaMulta() {
-
+    public float calculaMulta(int diasAtraso) {
+        float taxaDiaria = (float) 0.75;
+        float multaRevista = diasAtraso * taxaDiaria;
+        return multaRevista;
     }
-
+    @Override
+    public void exibeItem(){
+        System.out.println("ID: " + getIdItem());
+        System.out.println("Ítem: " + getTituloItem());
+        System.out.println("Localização: " +getLocalizacao());
+        System.out.println("Disponível: " + getDisponivel());
+        System.out.println("QTD Disponível: "+ getQtdDisponivel());
+        System.out.println("Periódico" + getPeriodico());
+        System.out.println("Edição" + getEdicao());
+        System.out.println("Editora" + getEditora());
+        System.out.println("Categoria"+ getCategoria());
+    }
     //GETTERS E SETTERS*//
 
     public String getPeriodico() {
@@ -36,5 +49,10 @@ public class Revista extends itemBiblioteca {
 
     public Categoria getCategoria() {
         return categoria;
+    }
+
+    @Override
+    public String toString() {
+        return getTituloItem();
     }
 }

@@ -8,5 +8,12 @@ public class Usuario {
         this.IdUsuario = IdUsuario;
         this.NomeAluno = NomeAluno;
     }
-    
+
+    public int getIdUsuario() {
+        return IdUsuario;
+    }
+
+    public String getNomeAluno() {
+        return NomeAluno;
+    }
 }

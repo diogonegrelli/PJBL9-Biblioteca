@@ -14,7 +14,39 @@ public class Livro extends itemBiblioteca{
     }
 
     @Override
-    public void calculaMulta(){
+    public float calculaMulta(int diasAtraso) {
+        float taxaDiaria = (float) 1;
+        float multaLivro = diasAtraso * taxaDiaria;
+        return multaLivro;
 
+    }
+
+    @Override
+    public void exibeItem(){
+        System.out.println("ID: " + getIdItem());
+        System.out.println("Ítem: " + getTituloItem());
+        System.out.println("Localização: " +getLocalizacao());
+        System.out.println("Disponível: " + getDisponivel());
+        System.out.println("QTD Disponível: "+ getQtdDisponivel());
+        System.out.println("Autor" + getAutor());
+        System.out.println("Ano de Publicação" + getAnoDePublicacao());
+        System.out.println("Categoria" + getCategoria());
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getAnoDePublicacao() {
+        return anoDePublicacao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    @Override
+    public String toString() {
+        return getTituloItem();
     }
 }

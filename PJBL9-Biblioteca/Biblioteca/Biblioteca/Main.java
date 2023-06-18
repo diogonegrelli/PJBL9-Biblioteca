@@ -9,12 +9,18 @@ import java.util.ArrayList;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        itemBiblioteca dell = new Notebook(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "dell" , "inspiron 2023");
-        dell.exibeItem();
-        ArrayList<itemBiblioteca> colecaoItens = new ArrayList<>();
-        Categoria produtosfisicos = new Categoria(2012023, "Produtos Físicos", colecaoItens);
-        produtosfisicos.setColecaoCategoria(new ArrayList<itemBiblioteca>());
-        itemBiblioteca arq = new Livro(595, "ARQ","corredor 03", true, 03, "fulano", 2009, produtosfisicos);
+        //*CRIA CATEGORIAS E ARRAYS DAS CATEGORIAS//
+        ArrayList<itemBiblioteca> colecaoEletronicos = new ArrayList<>();
+        ArrayList<itemBiblioteca> colecaoLivraria = new ArrayList<>();
+        Categoria eletronicos = new Categoria(012023, "Eletrônicos", colecaoEletronicos);
+        Categoria livraria = new Categoria(022023, "Livraria" , colecaoLivraria);
+        //*CATEGORIAS CRIADAS//
+        itemBiblioteca dell = new Notebook(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "dell" , "inspiron 2023", eletronicos);
+
+        Revista revista = new Revista(1, "Título da Revista", "Localização da Revista", true, 10, "Periodico da Revista", 1, "Editora da Revista", livraria);
+        System.out.println(revista.calculaMulta(5));
+
+
     }
 
 

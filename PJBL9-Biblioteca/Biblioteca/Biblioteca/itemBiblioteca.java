@@ -16,7 +16,8 @@ public abstract class itemBiblioteca {
         this.qtdDisponivel = qtdDisponivel;
     }
 
-    public abstract void calculaMulta();
+
+    public abstract float calculaMulta(int diasAtraso);
 
     public void exibeItem(){
         System.out.println("ID: " + getIdItem());
@@ -60,6 +61,8 @@ public abstract class itemBiblioteca {
         this.qtdDisponivel = qtdDisponivel;
     }
 
-    public int getIdItem() {        return idItem;
+    public int getIdItem() {   return idItem;
     }
+
+    public abstract String toString();
 }
