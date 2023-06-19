@@ -3,9 +3,12 @@ package UI;
 import javax.swing.*;
 
 public class Screen extends JFrame{
+
+    JFrame window1 = new JFrame();
     private JPanel panel1;
-    private JLabel idUser;
-    private JTextField idinput;
-    private JButton acessarButton;
-    private JPasswordField passwordField1;
+    private JButton button1;
+    private JButton empréstimosButton;
+    private JButton consultaItensButton;
+
+
 }

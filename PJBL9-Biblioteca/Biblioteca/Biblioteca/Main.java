@@ -1,9 +1,16 @@
 package Biblioteca;
-
+import Biblioteca.Livro;
+import Biblioteca.Revista;
+import Biblioteca.Emprestimo;
+import Biblioteca.Usuario;
 import Biblioteca.Notebook;
 import Biblioteca.itemBiblioteca;
-
+import UI.Home;
+import UI.Interface;
+import UI.Screen;
+import UI.Screen;
 import java.util.ArrayList;
+
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -21,18 +28,33 @@ public class Main {
         //* CRIAÇAO DOS ITENS DA BIBLIOTECA//
         itemBiblioteca notebook1 = new Notebook (544, "ACER ASPIRE 5", "corredor 04", true, 03, "ACER" , "aspire 5" , eletronicos);
         itemBiblioteca notebook2 = new Notebook(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "DELL" , "inspiron 2023", eletronicos);
-        itemBiblioteca revista1 = new Revista(546,"")
-        itemBiblioteca revista2 = new Revista(547,)
-        itemBiblioteca revista3 = new Revista(548,)
-        itemBiblioteca livro1 = new Livro(549,);
-        itemBiblioteca livro2 = new Livro(550,);
-        itemBiblioteca livro3 = new Livro(551,);
+        itemBiblioteca revista1 = new Revista(546,"Revista X", "corredor 03", true , 02, "ABRIL 2010", 201, "World" , livraria);
+        itemBiblioteca revista2 = new Revista(547,"Revista Y" , "corredor 03", true, 01,"JUNHO 2015" ,30,"World", livraria);
+        itemBiblioteca revista3 = new Revista(548,"ISTO É", "corredor 03",  true, 03,"FEVEREIRO 2017",40 ,"World" , livraria);
+        itemBiblioteca livro1 = new Livro(549,"O poder da mente", "corredor 02", true, 04,"Fulano",2020,livraria);
+        itemBiblioteca livro2 = new Livro(550,"The worst of Tinar", "corredor 02", true,10, "Beltrano",2021,livraria);
+        itemBiblioteca livro3 = new Livro(551,"Morri para viver" , "corredor 02", true, 05,"Andressa Urach",2022, livraria);
 
+        ArrayList<Emprestimo> emprestimosUsuario = new ArrayList<>();
+        Usuario gabriel = new Usuario(701, "Gabriel" , emprestimosUsuario);
+        Emprestimo emprestimo1  = new Emprestimo(livro3, 4958495, gabriel, 15);
+        System.out.println(emprestimo1.realizarEmprestimo(livro3));
+        System.out.println(emprestimo1.verificaStatus());
+        System.out.println(livro3.getQtdDisponivel());
+        emprestimo1.devolverItem(livro3);
+        System.out.println(livro3.getQtdDisponivel());
+
+        //*ADICIONA OS ITENS EM SUAS RESPECTIVAS CATEGORIAS//
         colecaoEletronicos.add(notebook1);
-        colecaoEletronicos
+        colecaoEletronicos.add(notebook2);
+        colecaoLivraria.add(revista1);
+        colecaoLivraria.add(revista2);
+        colecaoLivraria.add(revista3);
+        colecaoLivraria.add(livro1);
+        colecaoLivraria.add(livro2);
+        colecaoLivraria.add(livro3);
 
-        Revista revista = new Revista(1, "Título da Revista", "Localização da Revista", true, 10, "Periodico da Revista", 1, "Editora da Revista", livraria);
-        System.out.println(revista.calculaMulta(5));
+
 
 
 

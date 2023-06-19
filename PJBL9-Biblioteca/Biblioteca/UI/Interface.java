@@ -13,8 +13,6 @@ public abstract class Interface {
         mainWindow.setLocationRelativeTo(null);
         mainWindow.setVisible(true);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
     }
     public static void changeScreen(JPanel panel1){
         mainWindow.getContentPane().removeAll();
@@ -23,5 +21,7 @@ public abstract class Interface {
         mainWindow.repaint();
 
     }
-    public abstract JPanel mostrar();
+    public JPanel mostrar(){
+        return null;
+    };
 }

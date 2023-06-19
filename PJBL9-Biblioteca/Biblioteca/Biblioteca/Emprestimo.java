@@ -34,11 +34,11 @@ public String verificaStatus() {
 }
 
 
-public void devolverItem(itemBiblioteca itemEmprestado) throws Multa {
+public void devolverItem(itemBiblioteca itemEmprestado) {
     String status = verificaStatus();
     if (status.startsWith("Último dia para devolução") || status.startsWith("Em dia")) {
         itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
-        System.out.println("O item " + itemEmprestado + " foi devolvido com sucesso.");
+        System.out.println("O item " + "'" + itemEmprestado +"'" + " foi devolvido com sucesso.");
     } else {
        float x=0;
     }

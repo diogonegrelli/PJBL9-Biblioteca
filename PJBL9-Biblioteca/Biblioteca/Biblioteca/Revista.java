@@ -55,4 +55,6 @@ public class Revista extends itemBiblioteca {
     public String toString() {
         return getTituloItem();
     }
+
+
 }
