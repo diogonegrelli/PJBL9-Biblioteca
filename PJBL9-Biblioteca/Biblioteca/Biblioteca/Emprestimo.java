@@ -1,7 +1,8 @@
 package Biblioteca;
-import java.util.Scanner;
-
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import Biblioteca.Livro;
+import Biblioteca.Revista;
 
 public class Emprestimo {
     private itemBiblioteca itemEmprestado;
@@ -23,28 +24,27 @@ public String verificaStatus() {
     LocalDate dataAtual = LocalDate.now();
 
     if (dataAtual.isBefore(dataDevolucao)) {
-        return "Em dia";
+        return  "Em dia";
     } else if (dataAtual.isEqual(dataDevolucao)) {
        return "Última dia para devolução";
     } else {
-        return "Atrasado";
+         float diasAtraso = ChronoUnit.DAYS.between(dataDevolucao, dataAtual);
+        return "Atrasado" + diasAtraso + " dias";
     }
 }
 
 
-public void devolverItem() {
-    if (!pendente) {
-        System.out.println("O item está disponível para empréstimo.");
-    } else if (prazoDevolucao < 0) {
-        System.out.println("O prazo de devolução está atrasado.");
+public void devolverItem(itemBiblioteca itemEmprestado) throws Multa {
+    String status = verificaStatus();
+    if (status.startsWith("Último dia para devolução") || status.startsWith("Em dia")) {
+        itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
+        System.out.println("O item " + itemEmprestado + " foi devolvido com sucesso.");
     } else {
-        System.out.println("O item está indisponível no momento.");
+       float x=0;
     }
-
 }
 
-public LocalDate realizarEmprestimo(itemBiblioteca X) {
-        getItemEmprestado();
+public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
         LocalDate dataAtual = LocalDate.now();
         int prazoDevolucao;
         if (itemEmprestado instanceof Livro) {
@@ -57,7 +57,7 @@ public LocalDate realizarEmprestimo(itemBiblioteca X) {
         }
         int qtdDisponivel = itemEmprestado.getQtdDisponivel();
         itemEmprestado.setQtdDisponivel(qtdDisponivel - 1);
-        System.out.println("Empréstimo realizado com sucesso!");
+        System.out.println("Empréstimo do item" + itemEmprestado + "pelo usuário" + usuario + "com sucesso!");
         return dataAtual.plusDays(prazoDevolucao);
     }
 
