@@ -16,7 +16,7 @@ public class Revista extends itemBiblioteca {
     }
     //*MÉTODO ABSTRATO IMPLEMENTADO NAS CLASSES FILHAS: LIVRO, REVISTA E NOTEBOOK//
     @Override
-    public float calculaMulta(int diasAtraso) {
+    public float calculaMulta(long diasAtraso) {
         float taxaDiaria = (float) 0.75;
         float multaRevista = diasAtraso * taxaDiaria;
         return multaRevista;

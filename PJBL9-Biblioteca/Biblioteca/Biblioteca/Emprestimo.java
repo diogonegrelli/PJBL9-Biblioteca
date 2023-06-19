@@ -35,14 +35,30 @@ public String verificaStatus() {
 
 
 public void devolverItem(itemBiblioteca itemEmprestado) {
+    LocalDate dataDevolucao = LocalDate.now().plusDays(prazoDevolucao);
+    LocalDate dataAtual = LocalDate.now();
+    long diasAtraso = ChronoUnit.DAYS.between(dataDevolucao, dataAtual);
     String status = verificaStatus();
     if (status.startsWith("Último dia para devolução") || status.startsWith("Em dia")) {
         itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
         System.out.println("O item " + "'" + itemEmprestado +"'" + " foi devolvido com sucesso.");
     } else {
-       float x=0;
+        System.out.println("Item devolvido com atraso, multa aplicada.");
+        itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
+
+        if(itemEmprestado instanceof Livro) {
+            Livro livro = (Livro) itemEmprestado;
+            float multa = livro.calculaMulta(diasAtraso);
+            System.out.println("Valor da multa: " + multa);
+        } else {
+            Revista revista = (Revista) itemEmprestado;
+            float multa = revista.calculaMulta(diasAtraso);
+            System.out.println("Valor da multa: " + multa);
+        }
     }
+
 }
+
 
 public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
         LocalDate dataAtual = LocalDate.now();

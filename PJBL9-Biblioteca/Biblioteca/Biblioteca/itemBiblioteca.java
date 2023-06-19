@@ -17,7 +17,7 @@ public abstract class itemBiblioteca {
     }
 
 
-    public abstract float calculaMulta(int diasAtraso);
+    public abstract float calculaMulta(long diasAtraso);
 
     public void exibeItem(){
         System.out.println("ID: " + getIdItem());

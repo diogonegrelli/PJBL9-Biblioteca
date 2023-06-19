@@ -14,7 +14,7 @@ public class Livro extends itemBiblioteca{
     }
 
     @Override
-    public float calculaMulta(int diasAtraso) {
+    public float calculaMulta(long diasAtraso) {
         float taxaDiaria = (float) 1;
         float multaLivro = diasAtraso * taxaDiaria;
         return multaLivro;

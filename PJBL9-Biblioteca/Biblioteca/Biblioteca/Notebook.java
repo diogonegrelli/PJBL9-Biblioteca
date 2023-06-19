@@ -16,7 +16,7 @@ public class Notebook extends itemBiblioteca {
     }
     //* Notebook não é emprestado, portanto implementa mas retorno ZERO//
     @Override
-    public float calculaMulta(int diasAtraso) {
+    public float calculaMulta(long diasAtraso) {
         return 0;
     }
     @Override
