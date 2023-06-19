@@ -1,4 +1,5 @@
 package Biblioteca;
+import java.util.Scanner;
 
 import java.time.LocalDate;
 
@@ -7,7 +8,7 @@ public class Emprestimo {
     private int idEmprestimo;
     private Usuario usuario;
     private int prazoDevolucao;
-    private boolean pendente;
+    private boolean pendente; //se pendente é false o item está emprestado
 
     public Emprestimo(itemBiblioteca itemEmprestado, int idEmprestimo, Usuario usuario, int prazoDevolucao) {
         this.itemEmprestado = itemEmprestado;
@@ -24,7 +25,7 @@ public String verificaStatus() {
     if (dataAtual.isBefore(dataDevolucao)) {
         return "Em dia";
     } else if (dataAtual.isEqual(dataDevolucao)) {
-       return "Hoje Não é o Último dia";
+       return "Última dia para devolução";
     } else {
         return "Atrasado";
     }
@@ -35,31 +36,28 @@ public void devolverItem() {
     if (!pendente) {
         System.out.println("O item está disponível para empréstimo.");
     } else if (prazoDevolucao < 0) {
-        System.out.println("O prazoDevolucao de devolução está atrasado.");
+        System.out.println("O prazo de devolução está atrasado.");
     } else {
         System.out.println("O item está indisponível no momento.");
-     }
-}
-public void realizarRenovacao() {
-    System.out.println("Renovação realizada com sucesso. Novo prazo de devolução: " + calcularNovaDataDevolucao());
+    }
+
 }
 
-private LocalDate calcularNovaDataDevolucao() {
+public LocalDate realizarEmprestimo() {
         getItemEmprestado();
         LocalDate dataAtual = LocalDate.now();
-
         int prazoDevolucao;
-         /* variável ou get correspondente ao item*/
         if (itemEmprestado instanceof Livro) {
             prazoDevolucao = 15;
         }
-        /* variável ou get correspondente ao item*/
         else if (itemEmprestado instanceof Revista) {
             prazoDevolucao = 7;
         } else {
             return null;
         }
-
+        int qtdDisponivel = itemEmprestado.getQtdDisponivel();
+        itemEmprestado.setQtdDisponivel(qtdDisponivel - 1);
+        System.out.println("Empréstimo realizado com sucesso!");
         return dataAtual.plusDays(prazoDevolucao);
     }
 
