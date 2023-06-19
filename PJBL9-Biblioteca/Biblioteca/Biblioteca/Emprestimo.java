@@ -43,7 +43,7 @@ public void devolverItem() {
 
 }
 
-public LocalDate realizarEmprestimo() {
+public LocalDate realizarEmprestimo(itemBiblioteca X) {
         getItemEmprestado();
         LocalDate dataAtual = LocalDate.now();
         int prazoDevolucao;
