@@ -57,7 +57,7 @@ public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
         }
         int qtdDisponivel = itemEmprestado.getQtdDisponivel();
         itemEmprestado.setQtdDisponivel(qtdDisponivel - 1);
-        System.out.println("Empréstimo do item" + itemEmprestado + "pelo usuário" + usuario + "com sucesso!");
+        System.out.println("Empréstimo do item " + "'" + itemEmprestado + "'" + " pelo usuário " + usuario + " realizado com sucesso! A data final de devolução é:");
         return dataAtual.plusDays(prazoDevolucao);
     }
 

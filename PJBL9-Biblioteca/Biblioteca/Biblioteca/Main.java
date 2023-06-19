@@ -38,11 +38,11 @@ public class Main {
         ArrayList<Emprestimo> emprestimosUsuario = new ArrayList<>();
         Usuario gabriel = new Usuario(701, "Gabriel" , emprestimosUsuario);
         Emprestimo emprestimo1  = new Emprestimo(livro3, 4958495, gabriel, 15);
+        Emprestimo emprestimo2  = new Emprestimo(livro3, 4958495, gabriel, 15);
         System.out.println(emprestimo1.realizarEmprestimo(livro3));
-        System.out.println(emprestimo1.verificaStatus());
+        System.out.println(emprestimo2.realizarEmprestimo(livro3));
         System.out.println(livro3.getQtdDisponivel());
-        emprestimo1.devolverItem(livro3);
-        System.out.println(livro3.getQtdDisponivel());
+
 
         //*ADICIONA OS ITENS EM SUAS RESPECTIVAS CATEGORIAS//
         colecaoEletronicos.add(notebook1);
