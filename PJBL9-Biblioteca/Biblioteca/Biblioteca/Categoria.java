@@ -13,6 +13,9 @@ public class Categoria {
         this.colecaoCategoria = colecaoCategoria;
     }
 
+    public Categoria(String s) {
+    }
+
     //*GETTERS & SETTERS//
     public int getIdCategoria() {
         return idCategoria;
@@ -39,4 +42,7 @@ public class Categoria {
         return nomeCategoria;
     }
 
+    public String getNome() {
+        return nomeCategoria;
+    }
 }
