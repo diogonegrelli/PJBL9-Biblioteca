@@ -31,9 +31,9 @@ public class Main {
         itemBiblioteca revista1 = new Revista(546,"Revista X", "corredor 03", true , 02, "ABRIL 2010", 201, "World" , livraria);
         itemBiblioteca revista2 = new Revista(547,"Revista Y" , "corredor 03", true, 01,"JUNHO 2015" ,30,"World", livraria);
         itemBiblioteca revista3 = new Revista(548,"ISTO É", "corredor 03",  true, 03,"FEVEREIRO 2017",40 ,"World" , livraria);
-        itemBiblioteca livro1 = new Livro(549,"O poder da mente", "corredor 02", true, 04,"Fulano",2020,livraria);
-        itemBiblioteca livro2 = new Livro(550,"The worst of Tinar", "corredor 02", true,10, "Beltrano",2021,livraria);
-        itemBiblioteca livro3 = new Livro(551,"Morri para viver" , "corredor 02", true, 05,"Andressa Urach",2022, livraria);
+        itemBiblioteca livro1 = new Livro(549,"O poder da mente", "corredor 02", true, 04,"Fulano",2020,"livraria");
+        itemBiblioteca livro2 = new Livro(550,"The worst of Tinar", "corredor 02", true,10, "Beltrano",2021,"livraria");
+        itemBiblioteca livro3 = new Livro(551,"Morri para viver" , "corredor 02", true, 05,"Andressa Urach",2022, "livraria");
 
         ArrayList<Emprestimo> emprestimosUsuario = new ArrayList<>();
         Usuario gabriel = new Usuario(701, "Gabriel" , emprestimosUsuario);

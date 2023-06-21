@@ -4,9 +4,9 @@ public class Livro extends itemBiblioteca{
 
     private String autor;
     private int anoDePublicacao;
-    private Categoria categoria;
+    private String categoria;
 
-    public Livro(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String autor, int anoDePublicacao, Categoria categoria) {
+    public Livro(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String autor, int anoDePublicacao, String categoria) {
         super(idItem, tituloItem, localizacao, disponivel, qtdDisponivel);
         this.autor = autor;
         this.anoDePublicacao = anoDePublicacao;
@@ -41,7 +41,7 @@ public class Livro extends itemBiblioteca{
         return anoDePublicacao;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
