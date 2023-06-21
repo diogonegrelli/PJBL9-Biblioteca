@@ -114,7 +114,7 @@ public class BibliotecaGUI extends JFrame {
         container.add(listaLivrosTextArea, BorderLayout.CENTER);
         container.add(exibirListaButton, BorderLayout.SOUTH);
 
-        setTitle("Livraria");
+        setTitle("Biblioteca");
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
