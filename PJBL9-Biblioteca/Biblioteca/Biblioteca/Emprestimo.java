@@ -3,13 +3,13 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
-    private itemBiblioteca itemEmprestado;
+    private ItemBiblioteca itemEmprestado;
     private int idEmprestimo;
     private Usuario usuario;
     private int prazoDevolucao;
     private boolean pendente; //se pendente é false o item está emprestado
 
-    public Emprestimo(itemBiblioteca itemEmprestado, int idEmprestimo, Usuario usuario, int prazoDevolucao) {
+    public Emprestimo(ItemBiblioteca itemEmprestado, int idEmprestimo, Usuario usuario, int prazoDevolucao) {
         this.itemEmprestado = itemEmprestado;
         this.idEmprestimo = idEmprestimo;
         this.usuario = usuario;
@@ -34,7 +34,7 @@ public String verificaStatus() {
 }
 
 
-public void devolverItem(itemBiblioteca itemEmprestado) {
+public void devolverItem(ItemBiblioteca itemEmprestado) {
     //LocalDate data = LocalDate.of(2023, 6, 1); //descomentar para usar de exemplo
     //LocalDate dataDevolucao = data.plusDays(prazoDevolucao); //descomentar para usar de exemplo
     LocalDate dataDevolucao = LocalDate.now().plusDays(prazoDevolucao);
@@ -62,7 +62,7 @@ public void devolverItem(itemBiblioteca itemEmprestado) {
 }
 
 
-public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
+public LocalDate realizarEmprestimo(ItemBiblioteca itemEmprestado) {
        // LocalDate data = LocalDate.of(2023, 6, 1); //descomentar para usar de exemplo
         LocalDate dataAtual = LocalDate.now();
         int prazoDevolucao;
@@ -114,7 +114,7 @@ public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
         this.pendente = pendente;
     }
 
-    public itemBiblioteca getItemEmprestado() {
+    public ItemBiblioteca getItemEmprestado() {
         return itemEmprestado;
     }
 }

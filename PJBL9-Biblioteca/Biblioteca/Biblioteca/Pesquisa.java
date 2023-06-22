@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public class Pesquisa extends itemBiblioteca {
+public class Pesquisa extends ItemBiblioteca {
     private String autor;
     private int anoDePublicacao;
     private String categoria;

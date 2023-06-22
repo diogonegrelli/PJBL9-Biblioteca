@@ -8,7 +8,7 @@ public class Usuario {
     private String NomeAluno;
     private ArrayList<Emprestimo> emprestimosUsuario;
 
-    private itemBiblioteca itemEmprestado;
+    private ItemBiblioteca itemEmprestado;
 
     public Usuario(int IdUsuario, String NomeAluno, ArrayList<Emprestimo>emprestimosUsuario) {
         this.IdUsuario = IdUsuario;
@@ -24,7 +24,7 @@ public class Usuario {
     public String getNomeAluno() {
         return NomeAluno;
     }
-    public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
+    public LocalDate realizarEmprestimo(ItemBiblioteca itemEmprestado) {
         getItemEmprestado();
         LocalDate dataAtual = LocalDate.now();
         int prazoDevolucao;

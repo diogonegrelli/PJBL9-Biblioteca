@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Categoria {
     private int idCategoria;
     private String nomeCategoria;
-    private ArrayList<itemBiblioteca> colecaoCategoria;
+    private ArrayList<ItemBiblioteca> colecaoCategoria;
 
-    public Categoria(int idCategoria, String nomeCategoria, ArrayList<itemBiblioteca> colecaoCategoria) {
+    public Categoria(int idCategoria, String nomeCategoria, ArrayList<ItemBiblioteca> colecaoCategoria) {
         this.idCategoria = idCategoria;
         this.nomeCategoria = nomeCategoria;
         this.colecaoCategoria = colecaoCategoria;
@@ -29,11 +29,11 @@ public class Categoria {
         this.nomeCategoria = nomeCategoria;
     }
 
-    public ArrayList<itemBiblioteca> getColecaoCategoria() {
+    public ArrayList<ItemBiblioteca> getColecaoCategoria() {
         return colecaoCategoria;
     }
 
-    public void setColecaoCategoria(ArrayList<itemBiblioteca> colecaoCategoria) {
+    public void setColecaoCategoria(ArrayList<ItemBiblioteca> colecaoCategoria) {
         this.colecaoCategoria = colecaoCategoria;
     }
 

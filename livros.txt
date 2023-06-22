@@ -1,4 +1,4 @@
-549;O poder da mente;corredor 03;true;4;Jose;2020;Ficcao
+549;O poder da mente;corredor 03;false;4;Jose;2020;Ficcao
 552;O senhor dos correios;corredor 02;true;4;Sedex;2020;Direito
 534;A cobra e a lebre;corredor 02;true;4;Maria;1873;Fantasia
 533;Diogo e a paz interior;corredor 02;true;4;Gabriel Domingues;2023;Realidade

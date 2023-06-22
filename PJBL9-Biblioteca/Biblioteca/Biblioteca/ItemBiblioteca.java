@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public abstract class itemBiblioteca {
+public abstract class ItemBiblioteca {
     private int idItem;
     private String tituloItem;
     private String localizacao;
@@ -8,7 +8,9 @@ public abstract class itemBiblioteca {
     private int qtdDisponivel;
 
 
-    public itemBiblioteca (int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel){
+
+
+    public ItemBiblioteca(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel){
         this.idItem = idItem;
         this.tituloItem = tituloItem;
         this.localizacao = localizacao;

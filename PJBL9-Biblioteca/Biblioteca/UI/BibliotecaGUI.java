@@ -16,9 +16,6 @@ import java.util.List;
 import javax.swing.JRadioButton;
 public class BibliotecaGUI extends JFrame {
     private List<Livro> livros;
-
-
-
     private JTextField tituloItemTextField;
     private JTextField localizacaoTextField;
     private JCheckBox disponivelCheckBox;
