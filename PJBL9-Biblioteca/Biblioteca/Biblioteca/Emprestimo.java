@@ -1,8 +1,6 @@
 package Biblioteca;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import Biblioteca.Livro;
-import Biblioteca.Revista;
 
 public class Emprestimo {
     private itemBiblioteca itemEmprestado;
@@ -75,7 +73,7 @@ public LocalDate realizarEmprestimo(itemBiblioteca itemEmprestado) {
             }
             else if (itemEmprestado instanceof Revista) {
                 prazoDevolucao = 7;
-            } else if(itemEmprestado instanceof Notebook) {
+            } else if(itemEmprestado instanceof Pesquisa) {
                 throw new Indisponivel();
             } else {
                 return null;

@@ -1,14 +1,4 @@
 package Biblioteca;
-import Biblioteca.Livro;
-import Biblioteca.Revista;
-import Biblioteca.Emprestimo;
-import Biblioteca.Usuario;
-import Biblioteca.Notebook;
-import Biblioteca.itemBiblioteca;
-import UI.Home;
-import UI.Interface;
-import UI.Screen;
-import UI.Screen;
 import java.util.ArrayList;
 
 
@@ -26,8 +16,8 @@ public class Main {
 
 
         //* CRIAÇAO DOS ITENS DA BIBLIOTECA//
-        itemBiblioteca notebook1 = new Notebook (544, "ACER ASPIRE 5", "corredor 04", true, 03, "ACER" , "aspire 5" , eletronicos);
-        itemBiblioteca notebook2 = new Notebook(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "DELL" , "inspiron 2023", eletronicos);
+        itemBiblioteca pesquisa1 = new Pesquisa(544, "ACER ASPIRE 5", "corredor 04", true, 03, "ACER" , "aspire 5" , eletronicos);
+        itemBiblioteca pesquisa2 = new Pesquisa(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "DELL" , "inspiron 2023", eletronicos);
         itemBiblioteca revista1 = new Revista(546,"Revista X", "corredor 03", true , 02, "ABRIL 2010", 201, "World" , livraria);
         itemBiblioteca revista2 = new Revista(547,"Revista Y" , "corredor 03", true, 01,"JUNHO 2015" ,30,"World", livraria);
         itemBiblioteca revista3 = new Revista(548,"ISTO É", "corredor 03",  true, 03,"FEVEREIRO 2017",40 ,"World" , livraria);
@@ -43,13 +33,13 @@ public class Main {
         //System.out.println(emprestimo2.realizarEmprestimo(livro3));
         //System.out.println(livro3.getQtdDisponivel());
         //System.out.println(emprestimo1.verificaStatus());
-        Emprestimo emprestimo3 = new Emprestimo(notebook1, 4958496, gabriel, 0);
-        System.out.println(emprestimo3.realizarEmprestimo(notebook1));
+        Emprestimo emprestimo3 = new Emprestimo(pesquisa1, 4958496, gabriel, 0);
+        System.out.println(emprestimo3.realizarEmprestimo(pesquisa1));
 
 
         //*ADICIONA OS ITENS EM SUAS RESPECTIVAS CATEGORIAS//
-        colecaoEletronicos.add(notebook1);
-        colecaoEletronicos.add(notebook2);
+        colecaoEletronicos.add(pesquisa1);
+        colecaoEletronicos.add(pesquisa2);
         colecaoLivraria.add(revista1);
         colecaoLivraria.add(revista2);
         colecaoLivraria.add(revista3);
