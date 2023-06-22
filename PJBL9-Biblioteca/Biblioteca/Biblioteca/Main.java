@@ -28,13 +28,22 @@ public class Main {
         ArrayList<Emprestimo> emprestimosUsuario = new ArrayList<>();
         Usuario gabriel = new Usuario(701, "Gabriel" , emprestimosUsuario);
         //Emprestimo emprestimo1  = new Emprestimo(livro3, 4958495, gabriel, 15);
-        //Emprestimo emprestimo2  = new Emprestimo(livro3, 4958495, gabriel, 15);
         //System.out.println(emprestimo1.realizarEmprestimo(livro3));
-        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
         //System.out.println(livro3.getQtdDisponivel());
         //System.out.println(emprestimo1.verificaStatus());
-        Emprestimo emprestimo3 = new Emprestimo(pesquisa1, 4958496, gabriel, 0);
-        System.out.println(emprestimo3.realizarEmprestimo(pesquisa1));
+        //emprestimo1.devolverItem(livro3);
+
+
+        //Emprestimo emprestimo2  = new Emprestimo(livro3, 4958495, gabriel, 15);
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        //System.out.println(emprestimo2.realizarEmprestimo(livro3));
+        
+        //Emprestimo emprestimo3 = new Emprestimo(pesquisa1, 4958496, gabriel, 0);
+        //System.out.println(emprestimo3.realizarEmprestimo(pesquisa1));
 
 
         //*ADICIONA OS ITENS EM SUAS RESPECTIVAS CATEGORIAS//

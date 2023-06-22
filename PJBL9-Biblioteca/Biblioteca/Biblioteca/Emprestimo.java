@@ -43,10 +43,12 @@ public void devolverItem(ItemBiblioteca itemEmprestado) {
     String status = verificaStatus();
     if (status.startsWith("Último dia para devolução") || status.startsWith("Em dia")) {
         itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
+        this.pendente = true;
         System.out.println("O item " + "'" + itemEmprestado +"'" + " foi devolvido com sucesso.");
     } else {
         System.out.println("Item devolvido com atraso, multa aplicada.");
         itemEmprestado.setQtdDisponivel(itemEmprestado.getQtdDisponivel() + 1);
+        this.pendente = true;
 
         if(itemEmprestado instanceof Livro) {
             Livro livro = (Livro) itemEmprestado;
@@ -63,7 +65,7 @@ public void devolverItem(ItemBiblioteca itemEmprestado) {
 
 
 public LocalDate realizarEmprestimo(ItemBiblioteca itemEmprestado) {
-       // LocalDate data = LocalDate.of(2023, 6, 1); //descomentar para usar de exemplo
+        //LocalDate data = LocalDate.of(2023, 6, 1); //descomentar para usar de exemplo
         LocalDate dataAtual = LocalDate.now();
         int prazoDevolucao;
 
@@ -79,10 +81,15 @@ public LocalDate realizarEmprestimo(ItemBiblioteca itemEmprestado) {
                 return null;
             }
             int qtdDisponivel = itemEmprestado.getQtdDisponivel();
+            if (qtdDisponivel > 0) {
             itemEmprestado.setQtdDisponivel(qtdDisponivel - 1);
             System.out.println("Empréstimo do item " + "'" + itemEmprestado + "'" + " pelo usuário " + usuario + " realizado com sucesso! A data final de devolução é:");
-        // return data.plusDays(prazoDevolucao); //descomentar para exemplo em sala
+        //    return data.plusDays(prazoDevolucao); //descomentar para exemplo em sala
             return dataAtual.plusDays(prazoDevolucao);
+            } else {
+                System.out.println("Item indisponivel para empréstimo na data de: ");
+                return dataAtual;
+            }
         
         } catch (Indisponivel e) {
             System.out.println(e.getMessage());
