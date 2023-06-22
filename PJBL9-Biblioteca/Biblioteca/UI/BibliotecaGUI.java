@@ -1,7 +1,10 @@
 package UI;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import Biblioteca.Livro;
-
+import Biblioteca.Pesquisa;
+import Biblioteca.Revista;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,9 +13,12 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+import javax.swing.JRadioButton;
 public class BibliotecaGUI extends JFrame {
     private List<Livro> livros;
+
+
+
     private JTextField tituloItemTextField;
     private JTextField localizacaoTextField;
     private JCheckBox disponivelCheckBox;
@@ -28,22 +34,23 @@ public class BibliotecaGUI extends JFrame {
     public BibliotecaGUI() {
         livros = new ArrayList<>();
 
-        JLabel tituloItemLabel = new JLabel("Título:");
+
+        JLabel tituloItemLabel = new JLabel("Título de livro:");
         tituloItemTextField = new JTextField(20);
 
-        JLabel localizacaoLabel = new JLabel("Localização:");
+        JLabel localizacaoLabel = new JLabel("Localização de livro:");
         localizacaoTextField = new JTextField(10);
 
         JLabel disponivelLabel = new JLabel("Disponível:");
         disponivelCheckBox = new JCheckBox();
 
-        JLabel qtdDisponivelLabel = new JLabel("Quantidade Disponível:");
+        JLabel qtdDisponivelLabel = new JLabel("Quantidade Disponível de livro:");
         qtdDisponivelTextField = new JTextField(4);
 
         JLabel autorLabel = new JLabel("Autor:");
         autorTextField = new JTextField(20);
 
-        JLabel anoDePublicacaoLabel = new JLabel("Ano de Publicação:");
+        JLabel anoDePublicacaoLabel = new JLabel("Ano de Publicação de livro:");
         anoDePublicacaoTextField = new JTextField(4);
 
         JLabel categoriaLabel = new JLabel("Categoria:");
@@ -63,7 +70,7 @@ public class BibliotecaGUI extends JFrame {
             }
         });
 
-        exibirListaButton = new JButton("Exibir Lista de Livros");
+        exibirListaButton = new JButton("Exibir Lista de coisas disponiveis ");
         exibirListaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 exibirListaLivros();
@@ -73,7 +80,7 @@ public class BibliotecaGUI extends JFrame {
         listaLivrosTextArea = new JTextArea(10, 30);
         listaLivrosTextArea.setEditable(false);
 
-        JButton deletarButton = new JButton("Deletar Livro");
+        JButton deletarButton = new JButton("Deletar");
         deletarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 deletarLivro();
@@ -87,7 +94,17 @@ public class BibliotecaGUI extends JFrame {
             }
         });
 
+
+
+
         JPanel panel = new JPanel();
+        JRadioButton revistaRadioButton = new JRadioButton("Revista");
+        panel.add(revistaRadioButton);
+        ButtonGroup tipoItemGroup = new ButtonGroup();
+        tipoItemGroup.add(revistaRadioButton);
+        JRadioButton livroRadioButton = new JRadioButton("Livro");
+        panel.add(livroRadioButton);
+        tipoItemGroup.add(livroRadioButton);
         panel.setLayout(new GridLayout(11, 2));
         panel.add(tituloItemLabel);
         panel.add(tituloItemTextField);
@@ -123,23 +140,29 @@ public class BibliotecaGUI extends JFrame {
     }
 
     private void cadastrarLivro() {
-        String tituloItem = tituloItemTextField.getText();
-        String localizacao = localizacaoTextField.getText();
-        boolean disponivel = disponivelCheckBox.isSelected();
-        int qtdDisponivel = Integer.parseInt(qtdDisponivelTextField.getText());
-        String autor = autorTextField.getText();
-        int anoDePublicacao = Integer.parseInt(anoDePublicacaoTextField.getText());
-        String categoria = categoriaTextField.getText();
+       try {
+            String tituloItem = tituloItemTextField.getText();
+            String localizacao = localizacaoTextField.getText();
+            boolean disponivel = disponivelCheckBox.isSelected();
+            int qtdDisponivel = Integer.parseInt(qtdDisponivelTextField.getText());
+            String autor = autorTextField.getText();
+            int anoDePublicacao = Integer.parseInt(anoDePublicacaoTextField.getText());
+            String categoria = categoriaTextField.getText();
 
-        int idItem = gerarIdItem();
-        for (int i = 0; i < qtdDisponivel; i++) {
-            Livro livro = new Livro(idItem, tituloItem, localizacao, disponivel, qtdDisponivel, autor, anoDePublicacao, categoria);
-            livros.add(livro);
-        }
+            int idItem = gerarIdItem();
+            for (int i = 0; i < qtdDisponivel; i++) {
+                Livro livro = new Livro(idItem, tituloItem, localizacao, disponivel, qtdDisponivel, autor, anoDePublicacao, categoria);
+                livros.add(livro);
+            }
 
-        limparCampos();
-        atualizarArquivoTxt();
-        JOptionPane.showMessageDialog(this, "Livro(s) cadastrado(s) com sucesso!");
+            limparCampos();
+            atualizarArquivoTxt();
+            JOptionPane.showMessageDialog(this, "Livro(s) cadastrado(s) com sucesso!");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Entrada invalida");
+
+
+       }
     }
 
     private void verificarDisponibilidade() {
@@ -187,6 +210,7 @@ public class BibliotecaGUI extends JFrame {
                 if (livro.getDisponivel()) {
                     livro.setDisponivel(false);
                     JOptionPane.showMessageDialog(this, "Livro emprestado com sucesso!");
+                    JOptionPane.showMessageDialog(this, "Na data " + LocalDate.now() );
                     atualizarArquivoTxt();
                     return;
                 } else {
