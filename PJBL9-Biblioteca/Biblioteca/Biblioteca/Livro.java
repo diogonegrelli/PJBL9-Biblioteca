@@ -49,4 +49,8 @@ public class Livro extends ItemBiblioteca {
     public String toString() {
         return getTituloItem();
     }
+
+    public static LivroFactory factory(String autor, int anoDePublicacao, String categoria) {
+        return new LivroFactory(autor, anoDePublicacao, categoria);
+    }
 }
