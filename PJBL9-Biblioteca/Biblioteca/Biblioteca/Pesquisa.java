@@ -5,7 +5,7 @@ public class Pesquisa extends ItemBiblioteca {
     private int anoDePublicacao;
     private String categoria;
 
-    public Pesquisa(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String marca, String modelo, Categoria categoria) {
+    public Pesquisa(int idItem, String tituloItem, String localizacao, Boolean disponivel, int qtdDisponivel, String marca, int modelo, Categoria categoria) {
         super(idItem, tituloItem, localizacao, disponivel, qtdDisponivel);
         this.autor = autor;
         this.anoDePublicacao = anoDePublicacao;

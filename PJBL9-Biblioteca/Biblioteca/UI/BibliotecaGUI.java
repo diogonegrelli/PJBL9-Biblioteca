@@ -2,9 +2,9 @@ package UI;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import Biblioteca.Livro;
-import Biblioteca.Pesquisa;
-import Biblioteca.Revista;
+
+import Biblioteca.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -146,10 +146,11 @@ public class BibliotecaGUI extends JFrame {
             int anoDePublicacao = Integer.parseInt(anoDePublicacaoTextField.getText());
             String categoria = categoriaTextField.getText();
 
+            LivroFactory livroFactory = new LivroFactory("Autor do Livro", 2023, "Categoria do Livro");
             int idItem = gerarIdItem();
             for (int i = 0; i < qtdDisponivel; i++) {
-                Livro livro = new Livro(idItem, tituloItem, localizacao, disponivel, qtdDisponivel, autor, anoDePublicacao, categoria);
-                livros.add(livro);
+                ItemBiblioteca itemBiblioteca = livroFactory.criarItemBiblioteca(idItem, tituloItem, localizacao, disponivel, qtdDisponivel, autor, anoDePublicacao, categoria);
+                livros.add((Livro) itemBiblioteca);
             }
 
             limparCampos();

@@ -56,5 +56,9 @@ public class Revista extends ItemBiblioteca {
         return getTituloItem();
     }
 
+    public static RevistaFactory factory(String periodico, int edicao, String editora, Categoria categoria) {
+        return new RevistaFactory(periodico, edicao, editora, categoria);
+    }
+
 
 }

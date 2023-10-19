@@ -13,17 +13,28 @@ public class Main {
         Categoria livraria = new Categoria(022023, "Livraria" , colecaoLivraria);
         //*CATEGORIAS CRIADAS//
 
+        // Criando a fábrica para Pesquisa//
+        ItemBibliotecaFactory pesquisaFactory = new PesquisaFactory("Autor da Pesquisa", 2023);
+
+        // Criando a fábrica para Revista//
+        ItemBibliotecaFactory revistaFactory = new RevistaFactory("Periodico", 1, "Editora", new Categoria(1, "Livraria", new ArrayList<>()));
+
+        // Criando a fábrica para Livro//
+        ItemBibliotecaFactory livroFactory = new LivroFactory("Autor do Livro", 2023, "Categoria do Livro");
 
 
-        //* CRIAÇAO DOS ITENS DA BIBLIOTECA//
-        ItemBiblioteca pesquisa1 = new Pesquisa(544, "ACER ASPIRE 5", "corredor 04", true, 03, "ACER" , "aspire 5" , eletronicos);
-        ItemBiblioteca pesquisa2 = new Pesquisa(545, "DELL INSPIRON 2023" , "corredor 04", true, 02, "DELL" , "inspiron 2023", eletronicos);
-        ItemBiblioteca revista1 = new Revista(546,"Revista X", "corredor 03", true , 02, "ABRIL 2010", 201, "World" , livraria);
-        ItemBiblioteca revista2 = new Revista(547,"Revista Y" , "corredor 03", true, 01,"JUNHO 2015" ,30,"World", livraria);
-        ItemBiblioteca revista3 = new Revista(548,"ISTO É", "corredor 03",  true, 03,"FEVEREIRO 2017",40 ,"World" , livraria);
-        ItemBiblioteca livro1 = new Livro(549,"O poder da mente", "corredor 02", true, 04,"Fulano",2020,"livraria");
-        ItemBiblioteca livro2 = new Livro(550,"The worst of Tinar", "corredor 02", true,10, "Beltrano",2021,"livraria");
-        ItemBiblioteca livro3 = new Livro(551,"Morri para viver" , "corredor 02", true, 05,"Andressa Urach",2022, "livraria");
+
+
+        // Usando as fábricas para criar objetos
+        ItemBiblioteca pesquisa1 = pesquisaFactory.criarItemBiblioteca(544, "ACER ASPIRE 5", "corredor 04", true, 3);
+        ItemBiblioteca pesquisa2 = pesquisaFactory.criarItemBiblioteca(545, "DELL INSPIRON 2023", "corredor 04", true, 2);
+        ItemBiblioteca revista1 = revistaFactory.criarItemBiblioteca(546, "Revista X", "corredor 03", true, 2);
+        ItemBiblioteca revista2 = revistaFactory.criarItemBiblioteca(547, "Revista Y", "corredor 03", true, 1);
+        ItemBiblioteca revista3 = revistaFactory.criarItemBiblioteca(548, "ISTO É", "corredor 03", true, 3);
+        ItemBiblioteca livro1 = livroFactory.criarItemBiblioteca(549, "O poder da mente", "corredor 02", true, 4);
+        ItemBiblioteca livro2 = livroFactory.criarItemBiblioteca(550, "The worst of Tinar", "corredor 02", true, 10);
+        ItemBiblioteca livro3 = livroFactory.criarItemBiblioteca(551, "Morri para viver", "corredor 02", true, 5);
+
 
         ArrayList<Emprestimo> emprestimosUsuario = new ArrayList<>();
         Usuario gabriel = new Usuario(701, "Gabriel" , emprestimosUsuario);
